@@ -7,8 +7,8 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const routes = [
         { id: 1, name: 'Topic', path: '/topic' },
-        { id: 1, name: 'Statistics', path: '/statistics' },
-        { id: 1, name: 'Blogs', path: '/blogs' }
+        { id: 2, name: 'Statistics', path: '/statistics' },
+        { id: 3, name: 'Blogs', path: '/blogs' }
     ]
     return (
         <nav className='flex justify-between align-middle bg-gray-700 w-full'>
