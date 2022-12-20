@@ -1,13 +1,34 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
+import About from './components/About/About';
+import Main from './components/Layouts/Main';
+import QuizItems from './components/QuizItems/QuizItems';
+import Statistics from './components/Statistics/Statistics';
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Main></Main>,
+      children: [
+        {
+          path: "/",
+          element: <QuizItems></QuizItems>
+        },
+        {
+          path: "/statistics",
+          element: <Statistics></Statistics>
+        },
+        {
+          path: "/about",
+          element: <About></About>
+        }
+      ]
+    },
+  ])
   return (
     <div className="App">
-      <Navbar></Navbar>
-      <h1 className='text-red-400 font-bold text-4xl	'>hello</h1>
-      <p>hello</p>
-      <p>quiz</p>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }

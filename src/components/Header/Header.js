@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import Links from '../Links/Links';
 import Logo from '../../images/quiz-logo.jpg'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Header = () => {
     const [open, setOpen] = useState(false);
-    const routes = [
-        { id: 1, name: 'Topic', path: '/topic' },
-        { id: 2, name: 'Statistics', path: '/statistics' },
-        { id: 3, name: 'Blogs', path: '/blogs' }
-    ]
     return (
         <nav className='flex justify-between align-middle bg-gray-700 w-full'>
             <img className='w-24' src={Logo} alt="" />
@@ -22,10 +17,12 @@ const Navbar = () => {
                     }
                 </div>
 
-                <ul className={`md:flex justify-between text-white absolute md:static duration-700 ease-in ${open ? 'top-6 right-2' : 'top-[-120px] right-2'}`}>
-                    {
-                        routes.map(route => <Links key={route.id} route={route}></Links>)
-                    }
+                <ul className={`bg-gray-700 md:flex justify-between text-white absolute md:static duration-700 ease-in ${open ? 'top-6 right-3' : 'top-[-120px] right-3'}`}>
+                    <li className='mr-12'> <Link to="/">Quiz Items</Link> </li>
+                    <li className='mr-12'> <Link to="/statistics">Statistics</Link> </li>
+                    <li className='mr-12'> <Link to="/about">About Us</Link> </li>
+                    <li className='mr-12'> <Link to="/about">About Us</Link> </li>
+                    <li className='mr-12'> <Link to="/about">About Us</Link> </li>
                 </ul>
             </div>
 
@@ -33,4 +30,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Header;
