@@ -7,7 +7,7 @@ const Header = () => {
     const [open, setOpen] = useState(false);
     return (
         <nav className='flex justify-between align-middle bg-gray-700 w-full'>
-            <img className='w-24' src={Logo} alt="" />
+            <img className='w-24 p-2' src={Logo} alt="" />
             <div>
                 <div className='md:hidden sm:flex justify-end'>
                     {
