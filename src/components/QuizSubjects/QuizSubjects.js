@@ -1,6 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const QuizSubjects = ({ quizData }) => {
+    const navigate = useNavigate();
+    const handleQuiz = () => {
+        navigate(`/${quizData.id}`)
+    }
     return (
         <div>
             {/* <h3>This is Subjects</h3> */}
@@ -9,7 +14,7 @@ const QuizSubjects = ({ quizData }) => {
                 <h2 className='text-xl font-bold'>{quizData.name}</h2>
                 <div className='flex justify-between m-4'>
                     <p className='bg-sky-200 px-2 py-1 rounded-md'>No of Ques:{quizData.total}</p>
-                    <button className='text-white font-bold bg-sky-700 rounded-md px-4 py-1'>Get Start</button>
+                    <button onClick={handleQuiz} className='text-white font-bold bg-sky-700 rounded-md px-4 py-1'>Get Start</button>
                 </div>
             </div>
         </div>
