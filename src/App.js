@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
@@ -7,6 +8,22 @@ import QuizQuestion from './components/QuizQuestions/QuizQuestion';
 import Statistics from './components/Statistics/Statistics';
 
 function App() {
+  let [correct, setCorrect] = useState(0);
+  let [answers, setAnswer] = useState([]);
+
+
+
+  const IncreaseCorrect = (value) => {
+    correct = correct + 1;
+    setCorrect(correct);
+
+    let newAnswers = [...answers, value];
+    setAnswer(newAnswers);
+    console.log(correct);
+
+  }
+  console.log(answers.length);
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -24,7 +41,7 @@ function App() {
           loader: async ({ params }) => {
             return fetch(`https://openapi.programming-hero.com/api/quiz/${params.quizId}`)
           },
-          element: <QuizQuestion></QuizQuestion>
+          element: <QuizQuestion IncreaseCorrect={IncreaseCorrect} answers={answers}></QuizQuestion>
         },
         {
           path: "/statistics",
