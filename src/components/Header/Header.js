@@ -20,6 +20,7 @@ const Header = () => {
                 <ul className={`bg-gray-700 md:flex justify-between text-white absolute md:static duration-700 ease-in ${open ? 'top-6 right-3' : 'top-[-120px] right-3'}`}>
                     <li className='mr-12'> <Link to="/">Quiz Items</Link> </li>
                     <li className='mr-12'> <Link to="/statistics">Statistics</Link> </li>
+                    <li className='mr-12'> <Link to="/blog">Blog</Link> </li>
                     <li className='mr-12'> <Link to="/about">About Us</Link> </li>
                 </ul>
             </div>

@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
+import Blog from './components/Blog/Blog';
 import Main from './components/Layouts/Main';
+import NothingFound from './components/NothingFound/NothingFound';
 import QuizItems from './components/QuizItems/QuizItems';
 import QuizQuestion from './components/QuizQuestions/QuizQuestion';
 import Statistics from './components/Statistics/Statistics';
@@ -53,11 +55,19 @@ function App() {
           element: <Statistics correct={correct} wrong={wrong}></Statistics>
         },
         {
+          path: "/blog",
+          element: <Blog></Blog>
+        },
+        {
           path: "/about",
           element: <About></About>
         }
       ]
     },
+    {
+      path: "*",
+      element: <NothingFound></NothingFound>
+    }
   ])
   return (
     <div className="App">
