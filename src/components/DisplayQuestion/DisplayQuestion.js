@@ -1,6 +1,6 @@
 const Displayquestion = (props) => {
     let { question, options, correctAnswer } = props.questionInfo;
-    let { IncreaseCorrect, answers } = props;
+    let { IncreaseCorrect, DecreaseCorrect, answers } = props;
 
     question = question.replace(/<(.|\n)*?>/g, '');
     // correctAnswer = correctAnswer.replace(/<(.|\n)*?>/g, '');
@@ -20,7 +20,7 @@ const Displayquestion = (props) => {
             alert("Your answer is Correct");
         }
         else {
-
+            DecreaseCorrect();
         }
     };
 

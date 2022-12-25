@@ -9,6 +9,7 @@ import Statistics from './components/Statistics/Statistics';
 
 function App() {
   let [correct, setCorrect] = useState(0);
+  let [wrong, setWrong] = useState(0);
   let [answers, setAnswer] = useState([]);
 
 
@@ -22,7 +23,11 @@ function App() {
     console.log(correct);
 
   }
-  console.log(answers.length);
+  const DecreaseCorrect = () => {
+    wrong = wrong + 1;
+    setWrong(wrong);
+  }
+  // console.log(answers.length);
 
   const router = createBrowserRouter([
     {
@@ -41,11 +46,11 @@ function App() {
           loader: async ({ params }) => {
             return fetch(`https://openapi.programming-hero.com/api/quiz/${params.quizId}`)
           },
-          element: <QuizQuestion IncreaseCorrect={IncreaseCorrect} answers={answers}></QuizQuestion>
+          element: <QuizQuestion IncreaseCorrect={IncreaseCorrect} DecreaseCorrect={DecreaseCorrect} answers={answers}></QuizQuestion>
         },
         {
           path: "/statistics",
-          element: <Statistics></Statistics>
+          element: <Statistics correct={correct} wrong={wrong}></Statistics>
         },
         {
           path: "/about",

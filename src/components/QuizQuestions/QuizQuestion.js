@@ -2,7 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import EachQuestion from '../EachQuestion/EachQuestion';
 
-const QuizQuestion = ({ IncreaseCorrect, answers }) => {
+const QuizQuestion = ({ IncreaseCorrect, DecreaseCorrect, answers }) => {
     const questionPaper = useLoaderData();
     const { name, logo, questions } = questionPaper.data;
     // console.log(IncreaseCorrect);
@@ -12,7 +12,7 @@ const QuizQuestion = ({ IncreaseCorrect, answers }) => {
                 <img className='w-20' src={logo} alt="" />
                 <h3 className='text-2xl text-bold text-white ml-4'>Quize Starts for {name}</h3>
             </div>
-            <EachQuestion questions={questions} IncreaseCorrect={IncreaseCorrect} answers={answers}></EachQuestion>
+            <EachQuestion questions={questions} IncreaseCorrect={IncreaseCorrect} DecreaseCorrect={DecreaseCorrect} answers={answers}></EachQuestion>
 
         </div>
     );
